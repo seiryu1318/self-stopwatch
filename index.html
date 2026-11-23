@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#071a3e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="자체 스톱워치">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="icon" href="icon-192.png">
+  <link rel="stylesheet" href="app.css">
+  <title>자체 스톱워치</title>
+</head>
+<body>
+  <main class="app" aria-label="자체 스톱워치">
+    <header class="brand glass">
+      <img src="고옴.jpg" alt="고옴" class="bear">
+      <h1>자체 스톱워치</h1>
+      <span>COUNTDOWN</span>
+    </header>
+
+    <section class="dial" id="dial" aria-live="polite">
+      <div class="ring" id="ring"></div>
+      <div class="dial-face glass">
+        <div class="elapsed-label">경과 시간</div>
+        <div class="elapsed" id="elapsed">00 : 00 : 00.00</div>
+        <div class="remaining-label">남은 시간</div>
+        <div class="time-editor" id="timeEditor" aria-label="남은 시간 입력">
+          <label><input id="hours" inputmode="numeric" maxlength="2" value="00" aria-label="시"><span>시</span></label>
+          <b>:</b>
+          <label><input id="minutes" inputmode="numeric" maxlength="2" value="00" aria-label="분"><span>분</span></label>
+          <b>:</b>
+          <label><input id="seconds" inputmode="numeric" maxlength="2" value="00" aria-label="초"><span>초</span></label>
+          <b>.</b><output id="hundredths">00</output>
+        </div>
+        <div class="message" id="message">시간을 입력해 주세요</div>
+        <button class="action glass" id="action" type="button"><span>시간을 입력해 주세요</span></button>
+      </div>
+    </section>
+
+    <nav class="controls" aria-label="타이머 조작">
+      <button id="pause" class="glass" type="button" disabled><span>일시정지</span><kbd aria-label="Space 키">▔</kbd></button>
+      <button id="restore" class="glass" type="button"><span>저장 시간으로 복원</span><kbd>S</kbd></button>
+      <button id="clear" class="glass" type="button"><span>완전 초기화</span><kbd>R</kbd></button>
+    </nav>
+  </main>
+
+  <div class="finish" id="finish" role="dialog" aria-modal="true" aria-labelledby="finishTitle" hidden>
+    <div class="finish-card glass">
+      <div class="stopwatch-icon" aria-hidden="true">⏱</div>
+      <h2 id="finishTitle">시간 종료</h2>
+      <p>확인을 누르면 저장한 시간으로 돌아갑니다.</p>
+      <button id="confirm" type="button">확인 <kbd aria-label="Space 키">▔</kbd></button>
+    </div>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -21,7 +21,7 @@ body::after{content:"";position:fixed;inset:0;background:linear-gradient(155deg,
 .remaining-label{margin-bottom:7px}
 .time-editor{display:flex;align-items:center;justify-content:center;gap:clamp(4px,1.3vw,14px);font-variant-numeric:tabular-nums}
 .time-editor label{display:grid;justify-items:center;gap:6px}
-.time-editor input{width:clamp(64px,12vw,104px);height:clamp(67px,10vw,92px);border:0;border-radius:20px;background:rgba(232,242,255,.14);color:#fff;text-align:center;font:700 clamp(38px,7vw,68px)/1 NotoKR;outline:none;box-shadow:none;caret-color:#9bc6ff}
+.time-editor input{width:clamp(72px,13vw,112px);height:clamp(67px,10vw,92px);min-width:0;padding:0;border:0;border-radius:20px;background:rgba(232,242,255,.14);color:#fff;text-align:center;font:700 clamp(36px,6vw,58px)/1 NotoKR;letter-spacing:0;outline:none;box-shadow:none;caret-color:#9bc6ff;font-variant-numeric:tabular-nums}
 .time-editor input:focus{background:rgba(230,242,255,.25);box-shadow:inset 0 -4px #9cc9ff}
 .time-editor label span{font-size:clamp(12px,1.8vw,17px);color:#cadcf4}
 .time-editor b{font-size:clamp(30px,5vw,48px);font-weight:400;margin-bottom:25px;color:#e5f0ff}

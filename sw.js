@@ -1,4 +1,4 @@
-const CACHE = "self-stopwatch-v1";
+const CACHE = "self-stopwatch-v2";
 const ASSETS = [
   "./", "./index.html", "./app.css", "./app.js", "./manifest.webmanifest",
   "./background.jpg", "./고옴.jpg", "./icon-180.png",

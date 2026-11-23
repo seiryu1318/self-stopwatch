@@ -26,9 +26,9 @@
   const renderInputs = () => {
     const cs = Math.max(0, Math.ceil(remainingMs / 10));
     const whole = Math.floor(cs / 100);
-    if (document.activeElement !== fields[0]) fields[0].value = pad(Math.floor(whole / 3600));
-    if (document.activeElement !== fields[1]) fields[1].value = pad(Math.floor(whole % 3600 / 60));
-    if (document.activeElement !== fields[2]) fields[2].value = pad(whole % 60);
+    if (mode !== 'editing' || document.activeElement !== fields[0]) fields[0].value = pad(Math.floor(whole / 3600));
+    if (mode !== 'editing' || document.activeElement !== fields[1]) fields[1].value = pad(Math.floor(whole % 3600 / 60));
+    if (mode !== 'editing' || document.activeElement !== fields[2]) fields[2].value = pad(whole % 60);
     ui.hundredths.textContent = pad(cs % 100);
     ui.elapsed.textContent = format(mode === 'editing' ? 0 : Math.max(0, savedMs - remainingMs));
     const progress = savedMs > 0 ? Math.min(1, Math.max(0, (savedMs - remainingMs) / savedMs)) : 0;
@@ -63,6 +63,7 @@
     const s = Math.min(59, Number(fields[2].value) || 0);
     const total = h * 3600 + m * 60 + s;
     if (total < 1) { ui.message.textContent = '1초 이상의 시간을 입력해 주세요'; return; }
+    fields.forEach(field => field.blur());
     savedMs = total * 1000;
     localStorage.setItem('selfStopwatchSeconds', String(total));
     restore();
